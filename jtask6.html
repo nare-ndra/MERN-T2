@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jtask6</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <style>
+        tr,
+        th {
+            margin: 20px;
+            padding: 10px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+
+        }
+
+        .form-label {
+            margin-bottom: 20px;
+        }
+
+        .c1 {
+            margin-top: 200px;
+            border: 2px;
+            border-radius: 10px;
+            background: linear-gradient(to bottom, #a04bef 0%, #f4cadf 100%);
+            margin-left: 600px;
+            margin-right: 600px;
+            height: 410px;
+        }
+
+        button {
+            width: 250px;
+            border-radius: 5px;
+        }
+
+        p {
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="c1">
+        <p class="display-3 text-center" style="padding-top: 20px;"><b>Instagram</b></p>
+        <center>
+            <form action="https://www.instagram.com/?hl=en" onsubmit="return validate()">
+                <table>
+                    <tr>
+                        <td><p id="invalid-msg"></p></td>
+                    </tr>
+                    <tr>
+
+                        <td>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fa-regular fa-user"></i></span>
+                                <input id="un" class="form-control" type="text" placeholder="Username" required>
+                        </td>
+                    </tr>
+                    <tr>
+
+                        <td>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
+                                <input id="pwd" class="form-control" type="password" placeholder="Password" required>
+                        </td>
+                    <tr>
+                        <td><button type="submit" class="btn-primary my-2 py-2">Log in</button><br></td>
+                    </tr>
+                    </tr>
+
+                </table>
+                <table>
+                    <tr>
+                        <td><input style="text-align: left;" type="checkbox">Remember me</input></td>
+                        <td>
+
+                            <span class="psw" style="margin-left: 60px;"><a href="https://www.instagram.com/accounts/password/reset/">Forgot password?</a></span>
+    </div>
+    </td>
+    </tr>
+    </table>
+    </form>
+
+    </center>
+    </div>
+    <center>
+        <p style="margin-top: 20px;">Don't have an account! <a style="margin-left: 20px;" href="https://www.instagram.com/accounts/emailsignup/">Sign Up here.</a></p>
+    </center>
+
+    <script>
+        function validate() {
+            var un = document.getElementById("un").value;
+            var pwd = document.getElementById("pwd").value;
+            if (un.length < 5 || pwd.length < 5) {
+                document.getElementById("invalid-msg").innerHTML = `<p class="alert alert-danger">Invalid username or password</p>`;
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+
+</html>

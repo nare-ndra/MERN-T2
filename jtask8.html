@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jtask8</title>
+    <style>
+        label,
+        input {
+            margin: 10px;
+            font-size: large;
+            border-radius: 5px;
+            border-collapse: collapse;
+        }
+
+        form {
+            background: linear-gradient(to bottom, #33ccff 0%, #ff99cc 100%);
+            width: 550px;
+            border-radius: 10px;
+        }
+
+        .error-msg {
+            color: #e60000;
+            font-family: "Serif";
+            font-size: large;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="text-align: center; margin-left: 500px;">
+        <form style="margin: 20px; padding: 30px;" id="myForm" onsubmit="return validateForm()">
+
+            <h1 style="text-align: center; color: blue;">Registration Form</h1>
+            <table>
+                <tr>
+                    <td><label>First Name</label></td>
+                    <td> <input id="fname" type="text"></td>
+                    <td><span id="fnameError" class="error-msg"></span></td>
+                </tr>
+                <tr>
+                    <td><label>Last Name</label></td>
+                    <td> <input id="lname" type="text"></td>
+                    <td><span id="lnameError" class="error-msg"></span></td>
+                </tr>
+                <tr>
+                    <td><label>Email</label></td>
+                    <td> <input id="email" type="email"></td>
+                    <td><span id="emailError" class="error-msg"></span></td>
+                </tr>
+                <tr>
+                    <td><label>Password</label></td>
+                    <td> <input id="password" type="password"></td>
+                    <td><span id="passwordError" class="error-msg"></span></td>
+                </tr>
+                <tr>
+                    <td><label>Re-Enter password</label></td>
+                    <td> <input id="rpassword" type="password"></td>
+                    <td><span id="rpasswordError" class="error-msg"></span></td>
+                </tr>
+                <tr>
+                    <td><label>Gender</label></td>
+                    <td>
+                        <input type="radio" name="gender">Male
+                        <input type="radio" name="gender">Female
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Age</label></td>
+                    <td> <input id="age" type="number"></td>
+                    <td><span id="ageError" class="error-msg"></span></td>
+                </tr>
+                <tr>
+                    <td><label>Address</label></td>
+                    <td> <textarea id="address" rows="3" cols="29"></textarea></td>
+                    <td><span id="addressError" class="error-msg"></span></td>
+                </tr>
+                <tr>
+                    <td><label>State</label></td>
+                    <td> <input id="state" type="text"></td>
+                    <td><span id="stateError" class="error-msg"></span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Country</label>
+                    </td>
+                    <td> <select>
+                            <option>--select the country--</option>
+                            <option>India</option>
+                            <option>Others</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Languages Known</label>
+                    </td>
+                    <td><input type="checkbox" />Telugu
+                        <input type="checkbox" />English
+                        <input type="checkbox" />Hindi
+                        <input type="checkbox" />Kannada
+                    </td>
+                </tr>
+            </table>
+            <input style="text-align: left;" type="checkbox">I hereby declare all the given details are true.<br>
+            <p>Login to ethnus website <a href="https://ethnus.com/"> Click here!</a></p>
+            <button type="submit"
+                style="background-color: red; border-radius: 5px; color: aliceblue; padding: 5px; margin-left: 30px;">Register</button>
+        </form>
+    </div></center>
+
+    <script>
+        function validateForm() {
+            let valid = true;
+            const fnameInput = document.getElementById("fname");
+            const fnameError = document.getElementById("fnameError");
+            if (fnameInput.value.trim() === "") {
+                fnameError.textContent = "POOR";
+                fnameInput.style.borderColor = "red";
+                valid = false;
+            } else {
+                fnameError.textContent = "";
+                fnameInput.style.borderColor = "";
+            }
+
+            const lnameInput = document.getElementById("lname");
+            const lnameError = document.getElementById("lnameError");
+            if (lnameInput.value.trim() === "") {
+                lnameError.textContent = "POOR";
+                lnameInput.style.borderColor = "red";
+                valid = false;
+            } else {
+                lnameError.textContent = "";
+                lnameInput.style.borderColor = "";
+            }
+
+            const emailInput = document.getElementById("email");
+            const emailError = document.getElementById("emailError");
+            if (emailInput.value.trim() === "") {
+                emailError.textContent = "POOR";
+                emailInput.style.borderColor = "red";
+                valid = false;
+            } else {
+                emailError.textContent = "";
+                emailInput.style.borderColor = "";
+            }
+
+            const passwordInput = document.getElementById("password");
+            const passwordError = document.getElementById("passwordError");
+            if (passwordInput.value === "") {
+                passwordError.textContent = "POOR";
+                passwordInput.style.borderColor = "red";
+                valid = false;
+            } else {
+                passwordError.textContent = "";
+                passwordInput.style.borderColor = "";
+            }
+
+            const rpasswordInput = document.getElementById("rpassword");
+            const rpasswordError = document.getElementById("rpasswordError");
+            if (rpasswordInput.value === "") {
+                rpasswordError.textContent = "POOR OR MISMATCH";
+                rpasswordInput.style.borderColor = "red";
+                valid = false;
+            } else {
+                rpasswordError.textContent = "";
+                rpasswordInput.style.borderColor = "";
+            }
+
+            const ageInput = document.getElementById("age");
+            const ageError = document.getElementById("ageError");
+            if (ageInput.value.trim() === "" || isNaN(ageInput.value)) {
+                ageError.textContent = "POOR";
+                ageInput.style.borderColor = "red";
+                valid = false;
+            } else {
+                ageError.textContent = "";
+                ageInput.style.borderColor = "";
+            }
+
+            const addressInput = document.getElementById("address");
+            const addressError = document.getElementById("addressError");
+            if (addressInput.value.trim() === "") {
+                addressError.textContent = "POOR";
+                addressInput.style.borderColor = "red";
+                valid = false;
+            } else {
+                addressError.textContent = "";
+                addressInput.style.borderColor = "";
+            }
+
+            const stateInput = document.getElementById("state");
+            const stateError = document.getElementById("stateError");
+            if (stateInput.value.trim() === "") {
+                stateError.textContent = "POOR";
+                stateInput.style.borderColor = "red";
+                valid = false;
+            } else {
+                stateError.textContent = "";
+                stateInput.style.borderColor = "";
+            }
+
+            return valid;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jtask3</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        form {
+            margin: 20px;
+            padding: 10px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"] {
+            width: 10%;
+            padding: 5px;
+            margin-bottom: 20px;
+        }
+
+        .result-input {
+            width: 100%;
+            padding: 5px;
+            font-weight: bold;
+        }
+        button{
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <p id="demo"></p>
+    <p id="demo1"></p>
+    <form>
+        <label for="num1">1st Number:</label>
+        <input type="text" id="num1" required>
+        <label for="num2">2nd Number:</label>
+        <input type="text" id="num2" required><br>
+        <button type="button" onclick="multiply()">Multiply</button>
+        <button type="button" onclick="divide()">Divide</button>
+        <label for="result">Result:</label>
+        <input type="text" id="result" readonly class="result-input">
+    </form>
+
+    <script>
+        function multiply() {
+            var num1 = parseFloat(document.getElementById("num1").value);
+            var num2 = parseFloat(document.getElementById("num2").value);
+
+            if (isNaN(num1) || isNaN(num2)) {
+                document.getElementById("result").value = "Invalid input";
+            } else {
+                var product = num1 * num2;
+                document.getElementById("result").value = product;
+            }
+        }
+
+        function divide() {
+            var num1 = parseFloat(document.getElementById("num1").value);
+            var num2 = parseFloat(document.getElementById("num2").value);
+
+            if (isNaN(num1) || isNaN(num2)) {
+                document.getElementById("result").value = "Invalid input";
+            } else if (num2 === 0) {
+                document.getElementById("result").value = "Cannot divide by zero";
+            } else {
+                var quotient = num1 / num2;
+                document.getElementById("result").value = quotient;
+            }
+        }
+    </script>
+</body>
+
+</html>
